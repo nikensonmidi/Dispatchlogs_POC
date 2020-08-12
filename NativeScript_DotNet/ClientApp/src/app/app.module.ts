@@ -11,6 +11,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { DispatchLogModule } from './dispatch-log/dispatch-log.module';
 import { DispatchlogService } from './services/dispatchlog.service';
+import { CacheService } from './services/cache.service';
 
 
 @NgModule({
@@ -36,7 +37,7 @@ import { DispatchlogService } from './services/dispatchlog.service';
       },
     ])
   ],
-  providers: [DispatchlogService],
+  providers: [DispatchlogService, CacheService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
