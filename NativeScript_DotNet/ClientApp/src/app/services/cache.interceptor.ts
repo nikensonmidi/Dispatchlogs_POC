@@ -9,7 +9,11 @@ export class CacheInterceptor implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
       const cacheResponse: HttpResponse<any> = this._cacheService.getItem(req.url);
-      if (cacheResponse) { return of(cacheResponse); }
+      if (cacheResponse) {
+console.log('response was saved');
+console.log(cacheResponse);
+        return of(cacheResponse);
+       }
 
   // if no response found in cache, go fetch it from server and add to cache
 return next.handle(req).pipe(
