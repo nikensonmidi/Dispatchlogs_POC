@@ -10,19 +10,32 @@ namespace NativeScript_DotNet.BusinessLogic
     {
         public static IEnumerable<DispatchLog> GetDispatchLogs()
         {
-            List<DispatchLog> logs = new List<DispatchLog>
+            List<DispatchLog> logs = new List<DispatchLog>();
+
+            for (int i = 0; i < 2000; i++)
             {
-new DispatchLog()
-{
-    CustomerNumber = "Alebar",
-    RequestedDate = new DateTime(2020,10,21),
-    SopNumber = "OMIM393162",
-    Status = "Unassigned",
-    Products = new List<Product>{ new Product() {Id = 1,Description = "22-0-11 50%PCU 44 MOP 3%D=FE Reg-50#",Name = "822149",Quantity = 12,UOM = "50 lB"}}
-}
-            };
+                logs.Add(
+                    new DispatchLog()
+                    {
+                        CustomerNumber = "Alebar"+i,
+                        RequestedDate = new DateTime(2020, 10, 21),
+                        SopNumber = "OMIM393162",
+                        Status = "Unassigned",
+                        Products = new List<Product>
+                        {
+                            new Product()
+                            {
+                                Id = 1, Description = "22-0-11 50%PCU 44 MOP 3%D=FE Reg-50#", Name = "822149",
+                                Quantity = 12, UOM = "50 lB"
+                            }
+                        }
+                    }
+                    );
+            }
+           
 
             return logs;
         }
     }
 }
+
