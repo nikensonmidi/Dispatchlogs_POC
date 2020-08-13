@@ -19,6 +19,8 @@ export class CacheInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
+    // using firestore as we will need to store into a persistent storage
+    // https://cloud.google.com/firestore/docs/manage-data/enable-offline
     // if it is not a get request get a fresh copy from server
     if (req.method !== 'GET') {
       this._cacheService.invalidateUrl(req.url);
